@@ -2,7 +2,7 @@
 
 sample2.c:
 	http://www.cqpub.co.jp/interface/download/2012/06/mb9bf618t_SysTick.zip
-	からダウンロードしたアーカイブの中の、eample/source/main.c をリネーム
+	からダウンロードしたアーカイブの中の、example/source/main.c をリネーム
 	して置きます。
 mb9b610t.h:
 system_mb9bf61x.h:
