@@ -1,0 +1,23 @@
+このディレクトリのソースをビルドするには、以下のファイルが必要です。
+
+sample2.c:
+	http://www.cqpub.co.jp/interface/download/2012/06/mb9bf618t_SysTick.zip
+	からダウンロードしたアーカイブの中の、eample/source/main.c をリネーム
+	して置きます。
+mb9b610t.h:
+system_mb9bf61x.h:
+system_mb9bf61x.c:
+	上記アーカイブに含まれる common/ にあるファイルをコピーして置きます。
+	もしくは、Keil μVision5がインストールされている環境で、Pack Installer
+	を使ってKeil::FM3HighPerformance_DFPをインストールし、
+        Keil_v5\ARM\Pack\Keil\FM3HighPerformance_DFP\1.0.1\Device\Include\MB9B610T
+	および
+	Keil_v5\ARM\Pack\Keil\FM3HighPerformance_DFP\1.0.1\Device\Source\MB9B610T
+	ディレクトリからコピーします。
+$HOME/cmsis
+	http://www.arm.com/cmsis
+        からCMSISの仕様とコードをダウンロードし、CMSIS-SP-00300-r3p1-00rel0.zip 
+	を$HOME/cmsisに展開します。
+	もしくは、Keil μVision5がインストールされている環境で、
+	Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS
+        ディレクトリを$HOME/cmsisにコピーします。
