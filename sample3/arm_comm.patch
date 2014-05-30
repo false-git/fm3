@@ -1,0 +1,57 @@
+*** arm_comm.h	2014-05-13 08:06:36.000000000 +0900
+--- arm_comm.h.fix	2014-05-30 13:56:43.000000000 +0900
+***************
+*** 115,123 ****
+  
+  #elif  __CORE__ == 7
+  
+! extern Int32U CriticalSecCntr;
+  
+! inline void EntrCritSection(void)
+  {
+    if(CriticalSecCntr == 0)
+    {
+--- 115,123 ----
+  
+  #elif  __CORE__ == 7
+  
+! extern uint32_t CriticalSecCntr;
+  
+! static inline void EntrCritSection(void)
+  {
+    if(CriticalSecCntr == 0)
+    {
+***************
+*** 127,133 ****
+    ++CriticalSecCntr;
+  }
+  
+! inline void ExtCritSection(void)
+  {
+    if(--CriticalSecCntr == 0)
+    {
+--- 127,133 ----
+    ++CriticalSecCntr;
+  }
+  
+! static inline void ExtCritSection(void)
+  {
+    if(--CriticalSecCntr == 0)
+    {
+***************
+*** 135,141 ****
+    }
+  }
+  
+! inline Int32U AtomicExchange (Int32U State, pInt32U Flag)
+  {
+  Int32U Hold;
+    EntrCritSection();
+--- 135,141 ----
+    }
+  }
+  
+! static inline Int32U AtomicExchange (Int32U State, pInt32U Flag)
+  {
+  Int32U Hold;
+    EntrCritSection();

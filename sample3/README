@@ -1,0 +1,39 @@
+IAR Embedded WorkbenchのUSB CDCサンプルをgccでビルドするためのファイル群です。
+
+このディレクトリのソースをビルドするには、以下のファイルが必要です。
+IAR Embedded Workbench のサンプルから入手するので、先に以下の手順を実施
+してください。
+
+1. 以下のURLから、IAR Embedded Workbenchを入手し、インストールする
+   http://www.iar.com/jp/Service-center/Downloads/
+2. IAR Embedded Workbenchを起動し、ARM用IARインフォメーションセンタの画面から、
+   「サンプルプロジェクト」→「Spansion」→「MB9B610 series (TYPE2) 」
+   →「IAR MB9BF618T-SK 」→「Virtual COM Port」と進み、サンプルプロジェクトを
+   作成する。
+3. 以下のファイルをこのディレクトリにコピーする。
+
+・\mb9b610\MB9BF618T-SK\VirtualCom\app\ ディレクトリの全ファイル
+  main.cはsample3.cにリネームする。
+・\mb9b610\MB9BF618T-SK\modules\ ディレクトリの全ファイル
+・\mb9b610\MB9BF618T-SK\board\ ディレクトリの全ファイル
+・\mb9b610\CMSIS\Device\Spansion\mb9bf61x\Include\ ディレクトリの全ファイル
+・\mb9b610\CMSIS\Device\Spansion\mb9bf61x\Source\ ディレクトリの全ファイル
+  (IARディレクトリは不要)
+$HOME/cmsis
+	http://www.arm.com/cmsis
+        からCMSISの仕様とコードをダウンロードし、CMSIS-SP-00300-r3p1-00rel0.zip 
+	を$HOME/cmsisに展開します。
+	もしくは、IAR Embedded Workbench のインストールディレクトリの、
+        \arm\CMSIS
+        ディレクトリを$HOME/cmsisにコピーします。
+4. arm_comm.h にpatchをあてる
+   patch < arm_comm.patch
+
+準備ができたら make すると sample3.hex ができるので、USB FLASH Direct Programmer
+でfm3マイコンに焼き、JP1を外してリセットすると、Windowsが新しいデバイスを検出
+します。
+あとは、\mb9b610\MB9BF618T-SK\VirtualCom\VirCOM_Driver_XP\ にあるinfファイルで
+デバイスドライバをインストールすれば、ターミナルソフトでエコーバックされます。
+ターミナルソフトの設定は、
+9600bps/パリティ無し/ストップビット1/RTSCTS/ローカルエコーなし/改行コードCRLF
+にすると良いです。
